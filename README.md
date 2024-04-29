@@ -292,15 +292,15 @@ All functions and values are accessed directly
 
 #### 2.4.4. Use Cases
 
-Functional Components: Recommended for most components, especially after hooks were introduced, as they provide a more modern and straightforward way to write components with fewer lines of code and better performance optimizations.
+**Functional Components**: Recommended for most components, especially after **hooks** were introduced, as they provide a more modern and straightforward way to write components with fewer lines of code and better performance optimizations
 
-Class Components: Useful in more complex scenarios that may require more nuanced control over performance optimizations through shouldComponentUpdate or when the component needs to manage internal state in a more traditional way.
+**Class Components**: Useful in more complex scenarios that may require more nuanced control over performance optimizations through **shouldComponentUpdate** or when the component needs to manage internal state in a more traditional way
 
 #### 2.4.5. Optimization
 
-Functional Components: Often lead to smaller bundle sizes and better performance due to simplifications in how React handles them.
+**Functional Components**: Often lead to smaller bundle sizes and better performance due to simplifications in how React handles them
 
-Class Components: Can sometimes lead to larger bundles and slower performance because they involve more complexity and overhead in their creation and destruction processes.
+**Class Components**: Can sometimes lead to larger bundles and slower performance because they involve more complexity and overhead in their creation and destruction processes
 
 #### 2.4.6. Conclusion
 
