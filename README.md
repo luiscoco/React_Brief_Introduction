@@ -332,6 +332,8 @@ export default UserGreeting;
 
 State in React allows you to keep track of changes in data over time. Here's how to use the useState hook in a functional component:
 
+### 4.1. Functional component
+
 ```jsx
 import React, { useState } from 'react';
 
@@ -350,6 +352,54 @@ function Counter() {
 
 export default Counter;
 ```
+
+### 4.2. Class component
+
+Here's how you would implement the same functionality using state in a class component in React
+
+This example will demonstrate how to use the state within a class component to create a simple counter similar to your functional component example
+
+```javascript
+import React, { Component } from 'react';
+
+class Counter extends Component {
+  constructor(props) {
+    super(props);
+    // Initializing the state
+    this.state = {
+      count: 0
+    };
+  }
+
+  // Method to increment the counter
+  incrementCount = () => {
+    this.setState({ count: this.state.count + 1 });
+  };
+
+  render() {
+    return (
+      <div>
+        <p>You clicked {this.state.count} times</p>
+        <button onClick={this.incrementCount}>
+          Click me
+        </button>
+      </div>
+    );
+  }
+}
+
+export default Counter;
+```
+
+**Key Points**:
+
+**Initialization**: The state is initialized in the constructor of the class component using this.state. Here, count is set to 0
+
+**State Update**: The incrementCount method updates the state using this.setState(), which triggers a re-render of the component with the new state value
+
+**Rendering**: In the render method, the current count is accessed using this.state.count and displayed. The button uses the incrementCount method to update the state every time it's clicked
+
+This example demonstrates the traditional way of managing state in class components, contrasting with the use of the useState hook in functional components, which provides a more straightforward and cleaner API for handling state in newer React applications
 
 ## 5. Effects and Effect Hook
 
