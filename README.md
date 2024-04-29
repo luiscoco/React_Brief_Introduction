@@ -4,13 +4,52 @@ Let's learn some basics of React, which is currently at version 18 as of my last
 
 ## 1. Setting Up Your Environment
 
-To work with React, you'll first need Node.js installed on your machine. Once you have Node.js, you can create a new React project using Create React App, a tool that sets up a new project with sensible defaults.
+To work with React, you'll first need **Node.js** installed on your machine
+
+Once you have Node.js, you can create a new React project using Create React App, a tool that sets up a new project with sensible defaults
 
 ```
-npx create-react-app my-react-app
+npx create-react-app my-app
 cd my-react-app
 npm start
 ```
+
+**To create a new React project** using Visual Studio Code (**VSCode**), you can follow these steps:
+
+**Install Node.js and npm**: Make sure you have Node.js and npm installed on your computer. You can download and install them from nodejs.org
+
+**Install Visual Studio Code**: If you don't have VSCode installed, download and install it from code.visualstudio.com
+
+**Open Visual Studio Code**: Launch VSCode
+
+**Open a Terminal in VSCode**: You can open a terminal by selecting Terminal > New Terminal from the top menu in VSCode. This opens an integrated terminal inside VSCode
+
+**Create a new React project using Create React App**: In the terminal, run the following command to create a new React project. Replace my-app with your desired project name:
+
+```
+npx create-react-app my-app
+```
+
+This command uses npx (which comes with npm) to run the create-react-app command line utility that sets up a new React project
+
+Navigate into your project directory: Change your current directory to the new project directory that was created:
+
+```
+cd my-app
+```
+
+Start the development server: Run the following command to start the development server:
+
+```
+npm start
+```
+
+This will compile your React application and open it in your default web browser. The development server will watch for any files you edit and automatically reload the page to reflect changes
+
+Code your application: Your new React project is set up and running. You can now open the project folder in VSCode and start modifying the source code. Use the Explorer in VSCode to open files and make changes
+
+These steps will get your new React project up and running in VSCode
+
 
 ## 2. Creating a Simple Component
 
