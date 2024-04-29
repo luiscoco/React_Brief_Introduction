@@ -2,7 +2,7 @@
 
 Let's learn some basics of React, which is currently at version 18 as of my last update. React is a popular JavaScript library for building user interfaces, particularly for web applications. It allows developers to create reusable UI components.
 
-## 1. Setting Up Your Environment
+## 1. How to Set Up your environment and how to create a new React project with VSCode
 
 To work with React, you'll first need **Node.js** installed on your machine
 
@@ -143,21 +143,111 @@ export default App;
 
 ## 2. Creating a Simple Component
 
-React components can be created as functions. Here’s a simple component that displays a message:
+To create a new React component in your existing React application using Visual Studio Code (VSCode), follow these steps. I'll provide both the process for creating a class component and a functional component as examples.
 
-```jsx
+### 2.1. Creating a Functional Component
+
+Open Your Project in VSCode: Open the folder containing your React project in VSCode
+
+Create a New File for Your Component:
+
+Navigate to the appropriate directory within your project where you want to add the new component (commonly it would be inside a components folder if you have one)
+
+Right-click on the folder in which you want to create the new component, select New File
+
+Name the file with a capital letter (as per React convention), for example, **MyFunctionalComponent.js**
+
+Write the Functional Component Code:
+
+Open the new file you just created
+
+Enter the following template for a basic functional component:
+
+```javascript
 import React from 'react';
 
-function Welcome() {
-  return <h1>Hello, React!</h1>;
+function MyFunctionalComponent() {
+  return (
+    <div>
+      Hello, this is my new component!
+    </div>
+  );
 }
 
-export default Welcome;
+export default MyFunctionalComponent;
 ```
+
+### 2.2. Creating a Class Component
+
+Open Your Project in VSCode: Just like with the functional component, start by opening your React project in VSCode
+
+Create a New File for Your Component:
+
+Navigate to where you want this new class component within your project's structure
+
+Right-click on the folder, select New File, and name it, e.g., **MyClassComponent.js**
+
+Write the Class Component Code:
+
+Open the newly created file.
+
+Enter the following template for a basic class component:
+
+```javascript
+import React, { Component } from 'react';
+
+class MyClassComponent extends Component {
+  render() {
+    return (
+      <div>
+        Hello, this is my class component!
+      </div>
+    );
+  }
+}
+
+export default MyClassComponent;
+```
+
+### 2.3. Using Your New Component
+
+After creating your new component, you can use it in your application by importing it into another component file. Here’s how you can do it:
+
+Open the Component File where you want to use your newly created component (e.g., App.js)
+
+**Import the Component at the top of the file**:
+
+```javascript
+import MyFunctionalComponent from './path/to/MyFunctionalComponent';
+// or if it's a class component
+import MyClassComponent from './path/to/MyClassComponent';
+```
+
+**Use the Component in your JSX**:
+
+```javascript
+function App() {
+  return (
+    <div>
+      <MyFunctionalComponent />
+      <MyClassComponent />
+    </div>
+  );
+}
+```
+
+Save the file and if your development server is running, it should automatically reload and display your new components
+
+These steps will help you efficiently create and integrate new React components into your application using VSCode
+
 
 ## 3. Using JSX
 
-JSX is a syntax extension for JavaScript that looks similar to XML or HTML. It is used with React to describe what the UI should look like. Here's how you might use JSX to combine data and HTML structure:
+JSX is a syntax extension for JavaScript that looks similar to XML or HTML
+
+It is used with React to describe what the UI should look like
+
+Here's how you might use JSX to combine data and HTML structure:
 
 ```jsx
 import React from 'react';
