@@ -60,6 +60,8 @@ Let's explain the workflow for a new application.
 
 **index.html**
 
+![image](https://github.com/luiscoco/React_Brief_Introduction/assets/32194879/1a857063-09f6-4ce8-9dca-50a45e64d0b0)
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
