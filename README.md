@@ -240,6 +240,75 @@ Save the file and if your development server is running, it should automatically
 
 These steps will help you efficiently create and integrate new React components into your application using VSCode
 
+### 2.4. Differences between Functional and Class components
+
+In React, you can define components either as **functional components** or **class components**, and the choice between them influences not only the **syntax** but also some of the **capabilities** and **behavior** of the components
+
+Here are the main differences:
+
+#### 2.4.1. Syntax and Definition
+
+**Functional Components**: These are simpler and defined as JavaScript functions
+
+They directly **return JSX**, which describes the UI
+
+Since React 16.8, functional components can **use hooks** to manage **state** and **lifecycle events**, which were previously only available in class components:
+
+```javascript
+function MyComponent() {
+  return <div>Hello, World!</div>;
+}
+```
+
+**Class Components**: These are defined as **ES6 classes**
+
+They extend **React.Component** and require at least the **render()** method, which returns JSX
+
+They have more boilerplate compared to functional components but provide more explicit handling of lifecycle methods and state:
+
+```javascript
+class MyComponent extends React.Component {
+  render() {
+    return <div>Hello, World!</div>;
+  }
+}
+```
+
+#### 2.4.2. State and Lifecycle
+
+**Functional Components (with Hooks)**: They use hooks like **useState** and **useEffect** to handle state and lifecycle events
+
+This makes the component concise and easier to understand at a glance, particularly when the component grows in complexity
+
+**Class Components**: They manage state using **this.state** and **this.setState**, and handle lifecycle processes in methods like **componentDidMount**, **componentDidUpdate**, and **componentWillUnmount**
+
+#### 2.4.3. this Keyword
+
+**Functional Components**: There is no this keyword in functional components
+
+All functions and values are accessed directly
+
+**Class Components**: You often need to bind event handlers to this or use arrow functions to ensure that this refers to the component instance
+
+#### 2.4.4. Use Cases
+
+Functional Components: Recommended for most components, especially after hooks were introduced, as they provide a more modern and straightforward way to write components with fewer lines of code and better performance optimizations.
+
+Class Components: Useful in more complex scenarios that may require more nuanced control over performance optimizations through shouldComponentUpdate or when the component needs to manage internal state in a more traditional way.
+
+#### 2.4.5. Optimization
+
+Functional Components: Often lead to smaller bundle sizes and better performance due to simplifications in how React handles them.
+
+Class Components: Can sometimes lead to larger bundles and slower performance because they involve more complexity and overhead in their creation and destruction processes.
+
+#### 2.4.6. Conclusion
+
+While both functional and class components are still supported in React, the introduction of hooks has largely swung the community and official recommendations towards **functional components**
+
+They offer a cleaner and more efficient way to write components, manage state, and handle side effects
+
+However, class components remain in use, particularly in older codebases or in complex scenarios where their explicit nature around lifecycle handling might be preferred
 
 ## 3. Using JSX
 
