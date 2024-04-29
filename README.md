@@ -87,6 +87,8 @@ Let's explain the workflow for a new application.
 
 **index.js**
 
+![image](https://github.com/luiscoco/React_Brief_Introduction/assets/32194879/aeacb8a6-3d9d-451d-bbe3-cf725132e04f)
+
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom/client';
@@ -108,6 +110,8 @@ reportWebVitals();
 ```
 
 **App.js**
+
+![image](https://github.com/luiscoco/React_Brief_Introduction/assets/32194879/eadc0e71-db8c-4a14-907f-24d0bbfa6a6c)
 
 ```javascript
 import logo from './logo.svg';
