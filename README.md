@@ -664,7 +664,142 @@ function CounterWithReducer() {
 export default CounterWithReducer;
 ```
 
-### 9.2. 
+### 9.2. Context Hooks 
+
+Context lets a component receive information from distant parents without passing it as props
+
+useContext reads and subscribes to a context
+
+The useContext hook in React makes it simpler to access context values in your application. Context is useful for passing data through the component tree without having to pass props down manually at every level.
+
+Here's a complete example demonstrating how to use useContext:
+
+**Step 1: Create a Context**
+
+First, we'll create a context. For this example, let’s say we want to manage a theme (light or dark) across our app:
+
+```javascript
+import React, { createContext, useContext, useState } from 'react';
+
+// Create a Context
+const ThemeContext = createContext();
+
+// Context provider component
+function ThemeProvider({ children }) {
+  const [theme, setTheme] = useState('light'); // Default theme is light
+
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
+  };
+
+  return (
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  );
+}
+```
+
+**Step 2: Consume Context with useContext**
+
+Now, let’s create a component that uses this context
+
+We’ll use the useContext hook to read and subscribe to the theme context:
+
+```javascript
+function ThemeToggler() {
+  const { theme, toggleTheme } = useContext(ThemeContext); // Accessing context value
+
+  return (
+    <div>
+      <p>The current theme is {theme}.</p>
+      <button onClick={toggleTheme}>Toggle Theme</button>
+    </div>
+  );
+}
+```
+
+**Step 3: Wrap Components with the Provider**
+
+Lastly, we need to wrap our components with the ThemeProvider so they can access the context:
+
+```javascript
+function App() {
+  return (
+    <ThemeProvider>
+      <div>
+        <h1>Welcome to the Themed App</h1>
+        <ThemeToggler />
+      </div>
+    </ThemeProvider>
+  );
+}
+
+export default App;
+```
+
+**Complete Example**
+
+Combining all parts, here's the entire application code:
+
+```javascript
+import React, { createContext, useContext, useState } from 'react';
+
+// Create a Context
+const ThemeContext = createContext();
+
+// Context provider component
+function ThemeProvider({ children }) {
+  const [theme, setTheme] = useState('light');
+
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
+  };
+
+  return (
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  );
+}
+
+// Component that consumes the context
+function ThemeToggler() {
+  const { theme, toggleTheme } = useContext(ThemeContext);
+
+  return (
+    <div>
+      <p>The current theme is {theme}.</p>
+      <button onClick={toggleTheme}>Toggle Theme</button>
+    </div>
+  );
+}
+
+// App component
+function App() {
+  return (
+    <ThemeProvider>
+      <div>
+        <h1>Welcome to the Themed App</h1>
+        <ThemeToggler />
+      </div>
+    </ThemeProvider>
+  );
+}
+
+export default App;
+```
+
+This complete example demonstrates how to use useContext to read and subscribe to React context, which in this case, manages the theme across components
+
+ The ThemeToggler component can access and modify the theme without needing to pass props deeply through the component hierarchy.
+
+
+
+
+
+
+
 
 
 ### 9.3. 
