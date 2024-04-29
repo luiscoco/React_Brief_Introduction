@@ -400,9 +400,109 @@ export default MyButton;
 
 ## 7. Component Lifecycle
 
-In class components, React lifecycle methods allow you to run code at specific points in a component's life, such as when it is created, updated, or destroyed. With hooks in functional components, these lifecycle behaviors are handled more abstractly but achieve similar results.
+In class components, React lifecycle methods allow you to run code at specific points in a component's life, such as when it is created, updated, or destroyed
 
-Mounting, Updating, and Unmounting: Lifecycle methods like componentDidMount, componentDidUpdate, and componentWillUnmount in class components or effects in hooks (useEffect) allow components to react to changes
+With hooks in functional components, these lifecycle behaviors are handled more abstractly but achieve similar results
+
+**Mounting, Updating, and Unmounting**: Lifecycle methods like componentDidMount, componentDidUpdate, and componentWillUnmount in class components or effects in hooks (useEffect) allow components to react to changes
+
+Below are examples of how lifecycle events are managed in both class components and functional components using hooks in React
+
+These examples will focus on the three main phases of a component's lifecycle: **Mounting, Updating, and Unmounting**
+
+### 7.1. Class Component Lifecycle Methods
+
+Here is an example of a class component that utilizes lifecycle methods:
+
+```javascript
+import React, { Component } from 'react';
+
+class LifecycleExample extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { counter: 0 };
+    console.log('Constructor: Component is initialized, not yet mounted.');
+  }
+
+  componentDidMount() {
+    console.log('componentDidMount: Component has mounted');
+    // Typically used for API calls to fetch initial data
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log('componentDidUpdate: Component has updated');
+    if (prevState.counter !== this.state.counter) {
+      console.log(`Counter changed from ${prevState.counter} to ${this.state.counter}`);
+    }
+  }
+
+  componentWillUnmount() {
+    console.log('componentWillUnmount: Component is about to be unmounted');
+    // Cleanup actions, like clearing timers or canceling network requests
+  }
+
+  incrementCounter = () => {
+    this.setState({ counter: this.state.counter + 1 });
+  };
+
+  render() {
+    return (
+      <div>
+        <h1>Counter: {this.state.counter}</h1>
+        <button onClick={this.incrementCounter}>Increment Counter</button>
+      </div>
+    );
+  }
+}
+
+export default LifecycleExample;
+```
+
+### 7.2. Functional Component with Hooks
+
+Equivalent functionality using hooks in a functional component:
+
+```javascript
+import React, { useState, useEffect } from 'react';
+
+function LifecycleExample() {
+  const [counter, setCounter] = useState(0);
+
+  useEffect(() => {
+    console.log('useEffect: Running after mount (componentDidMount equivalent)');
+    return () => {
+      console.log('useEffect Cleanup: Running before unmount (componentWillUnmount equivalent)');
+    };
+  }, []); // Empty dependency array makes this effect run only on mount and unmount
+
+  useEffect(() => {
+    console.log('useEffect: Running after counter updates (componentDidUpdate equivalent)');
+  }, [counter]); // This effect runs on every update of counter
+
+  const incrementCounter = () => {
+    setCounter(counter + 1);
+  };
+
+  return (
+    <div>
+      <h1>Counter: {counter}</h1>
+      <button onClick={incrementCounter}>Increment Counter</button>
+    </div>
+  );
+}
+
+export default LifecycleExample;
+```
+
+### 7.3. Explanation
+
+**Mounting**: In class components, componentDidMount is used to run code after the component is inserted into the DOM. In functional components, useEffect with an empty dependency array ([]) mimics this behavior
+
+**Updating**: In class components, componentDidUpdate allows you to execute code when the component updates due to changes in state or props. In functional components, useEffect with specific dependencies (like [counter]) serves the same purpose
+
+**Unmounting**: In class components, componentWillUnmount is used for cleanup just before the component is removed from the DOM. The cleanup function returned by useEffect in functional components achieves similar results
+
+These examples show how lifecycle behaviors can be implemented in both class and functional components, offering flexibility depending on the chosen approach in React development.
 
 ## 8. Context API
 
