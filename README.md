@@ -1,6 +1,12 @@
 # React_Brief_Introduction
 
-Let's learn some basics of React, which is currently at version 18 as of my last update. React is a popular JavaScript library for building user interfaces, particularly for web applications. It allows developers to create reusable UI components.
+https://react.dev/learn
+
+https://react.dev/reference/react
+
+Let's learn some basics of React, which is currently at version 18 as of my last update
+
+React is a popular JavaScript library for building user interfaces, particularly for web applications. It allows developers to create reusable UI components.
 
 ## 1. How to Set Up your environment and how to create a new React project with VSCode
 
