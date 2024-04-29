@@ -602,19 +602,74 @@ export default App;
 
 ## 9. Hooks
 
-Hooks are a feature introduced in React 16.8 that allow you to use state and other React features without writing a class. 
+**Hooks** are a feature introduced in React 16.8 that allow you to use state and other React features without writing a class
 
 They make function components as powerful as class components:
 
-**useState**: Lets you add state to function components
+### 9.1. State Hooks 
 
-**useEffect**: Lets you perform side effects in function components
+State lets a component “remember” information like user input
 
-**useContext**: Lets you subscribe to React context without introducing nesting
+To add state to a component, use one of these Hooks:
 
-**useReducer**: An alternative to useState that is preferable for managing complex state logic
+**useState**: declares a state variable that you can update directly
 
-**useMemo and useCallback**: Optimize performance by memoizing expensive functions
+```javascript
+import React, { useState } from 'react';
+
+function CounterWithState() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+    </div>
+  );
+}
+
+export default CounterWithState;
+```
+
+**useReducer**: declares a state variable with the update logic inside a reducer function
+
+useReducer typically being more suited to **complex state logic** that involves **multiple sub-values** or when the **next state depends on the previous one** in more complex ways
+
+```javascript
+import React, { useReducer } from 'react';
+
+function reducer(state, action) {
+  switch (action.type) {
+    case 'increment':
+      return { count: state.count + 1 };
+    case 'decrement':
+      return { count: state.count - 1 };
+    default:
+      throw new Error();
+  }
+}
+
+function CounterWithReducer() {
+  const [state, dispatch] = useReducer(reducer, { count: 0 });
+
+  return (
+    <div>
+      <p>Count: {state.count}</p>
+      <button onClick={() => dispatch({ type: 'increment' })}>Increment</button>
+      <button onClick={() => dispatch({ type: 'decrement' })}>Decrement</button>
+    </div>
+  );
+}
+
+export default CounterWithReducer;
+```
+
+### 9.2. 
+
+
+### 9.3. 
+
+
 
 ## 10. Fragments
 
