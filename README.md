@@ -54,7 +54,9 @@ This is the files and folders new project structure
 
 ![image](https://github.com/luiscoco/React_Brief_Introduction/assets/32194879/8e81b8b7-b226-4c5e-95d1-f7dfe23d2496)
 
-Let's explain the main files:
+Let's explain the workflow for a new application.
+
+**index.html** -> **index.js** -> **App.js**
 
 **index.html**
 
